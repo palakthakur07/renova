@@ -1,0 +1,80 @@
+"use client";
+
+import { Command } from "cmdk";
+import { AnimatePresence, motion } from "framer-motion";
+import { Search } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { primaryNav } from "@/constants/navigation";
+import { siteConfig } from "@/config/site";
+
+/**
+ * CommandPalette — UI only, per the Phase 1 brief. The single
+ * working action is navigation to the existing placeholder routes;
+ * there is no search index, no command execution engine yet.
+ */
+export function CommandPalette({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const router = useRouter();
+
+  return (
+    <AnimatePresence>
+      {open && (
+        <>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="fixed inset-0 z-[90] bg-black/60 backdrop-blur-sm"
+          />
+          <motion.div
+            initial={{ opacity: 0, y: -12, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -8, scale: 0.98 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed left-1/2 top-[18vh] z-[100] w-[min(560px,calc(100vw-2rem))] -translate-x-1/2"
+          >
+            <Command
+              className="glass-panel overflow-hidden rounded-[var(--radius-lg)]"
+              shouldFilter
+            >
+              <div className="flex items-center gap-2.5 border-b border-[var(--border-hairline)] px-4 py-3.5">
+                <Search size={15} className="text-[var(--text-muted)]" />
+                <Command.Input
+                  autoFocus
+                  placeholder={`Search ${siteConfig.shortName}…`}
+                  className="w-full bg-transparent text-[14px] text-[var(--text-primary)] outline-none placeholder:text-[var(--text-muted)]"
+                />
+                <kbd className="rounded-[var(--radius-xs)] border border-[var(--border-hairline-strong)] px-1.5 py-0.5 font-mono text-[10px] text-[var(--text-muted)]">
+                  Esc
+                </kbd>
+              </div>
+              <Command.List className="max-h-80 overflow-y-auto p-2">
+                <Command.Empty className="px-3 py-6 text-center text-[13px] text-[var(--text-muted)]">
+                  No results found.
+                </Command.Empty>
+                <Command.Group
+                  heading="Navigate"
+                  className="px-1 py-1 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:font-mono [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-wider [&_[cmdk-group-heading]]:text-[var(--text-muted)]"
+                >
+                  {primaryNav.map((item) => (
+                    <Command.Item
+                      key={item.href}
+                      onSelect={() => {
+                        router.push(item.href);
+                        onClose();
+                      }}
+                      className="flex cursor-pointer items-center gap-3 rounded-[var(--radius-sm)] px-3 py-2.5 text-[13px] text-[var(--text-primary)] aria-selected:bg-[var(--bg-surface-raised)]"
+                    >
+                      <item.icon size={15} strokeWidth={1.75} className="text-[var(--text-secondary)]" />
+                      {item.label}
+                    </Command.Item>
+                  ))}
+                </Command.Group>
+              </Command.List>
+            </Command>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
+  );
+}

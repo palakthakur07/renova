@@ -1,0 +1,203 @@
+/* ============================================================
+   RENOVA OS — DESIGN TOKEN SYSTEM
+   Single source of truth for every color, spacing, radius,
+   shadow, opacity, blur, glass, and motion value in the app.
+   No component may hardcode a raw value that belongs here.
+   ============================================================ */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* ---- Core surfaces (Graphite / Obsidian / Slate / Fog / Stone) ---- */
+  --color-obsidian:        #08090b;
+  --color-graphite-950:    #0c0e11;
+  --color-graphite-900:    #101317;
+  --color-graphite-800:    #15181d;
+  --color-graphite-700:    #1b1f25;
+  --color-slate-600:       #262c33;
+  --color-slate-500:       #333b44;
+  --color-slate-400:       #454e58;
+  --color-stone-300:       #6b7580;
+  --color-fog-200:         #9aa4ad;
+  --color-fog-100:         #c3cad0;
+  --color-off-white:       #edeff1;
+
+  /* ---- Secondary: growth / structure / precision ---- */
+  --color-teal-500:        #4fb5a6;
+  --color-teal-400:        #6cc9bc;
+  --color-teal-300:        #93dcd2;
+  --color-cyan-500:        #5fa0bd;
+  --color-cyan-400:        #7fb8d1;
+  --color-emerald-500:     #4c9c78;
+
+  /* ---- Accent: earned, not decorative ---- */
+  --color-gold-500:        #c6a05e;
+  --color-gold-400:        #d6b779;
+
+  /* ---- Critical: alerts, never loud ---- */
+  --color-red-500:         #b5564c;
+  --color-red-400:         #c77a71;
+
+  /* ---- Semantic aliases (what components should reference) ---- */
+  --bg-canvas:              var(--color-graphite-800);
+  --bg-stage:               var(--color-obsidian);
+  --bg-surface:             var(--color-graphite-700);
+  --bg-surface-raised:      var(--color-slate-600);
+  --border-hairline:        color-mix(in srgb, var(--color-fog-100) 10%, transparent);
+  --border-hairline-strong: color-mix(in srgb, var(--color-fog-100) 18%, transparent);
+  --text-primary:           var(--color-off-white);
+  --text-secondary:         var(--color-fog-200);
+  --text-muted:             var(--color-stone-300);
+  --accent-primary:         var(--color-teal-500);
+  --accent-structure:       var(--color-cyan-500);
+  --accent-growth:          var(--color-emerald-500);
+  --accent-achievement:     var(--color-gold-500);
+  --accent-critical:        var(--color-red-500);
+  --focus-ring:             color-mix(in srgb, var(--color-teal-400) 55%, transparent);
+  --scrollbar-thumb:        var(--color-slate-500);
+
+  /* ---- Opacity scale ---- */
+  --opacity-disabled: 0.4;
+  --opacity-muted: 0.6;
+  --opacity-hover-veil: 0.08;
+  --opacity-overlay: 0.72;
+
+  /* ---- Blur scale ---- */
+  --blur-sm: 8px;
+  --blur-md: 20px;
+  --blur-lg: 32px;
+
+  /* ---- Spacing scale (4px base) ---- */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.5rem;
+  --space-6:  2rem;
+  --space-7:  3rem;
+  --space-8:  4rem;
+  --space-9:  6rem;
+  --space-10: 8rem;
+
+  /* ---- Radius scale ---- */
+  --radius-xs:  6px;
+  --radius-sm:  10px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+  --radius-xl:  28px;
+  --radius-full: 999px;
+
+  /* ---- Shadow / elevation ---- */
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.30);
+  --shadow-2: 0 4px 16px rgba(0,0,0,0.28), 0 1px 2px rgba(0,0,0,0.24);
+  --shadow-3: 0 12px 40px rgba(0,0,0,0.34), 0 2px 6px rgba(0,0,0,0.22);
+  --shadow-glow-teal: 0 0 40px color-mix(in srgb, var(--color-teal-500) 22%, transparent);
+  --shadow-glow-gold: 0 0 32px color-mix(in srgb, var(--color-gold-500) 24%, transparent);
+
+  /* ---- Glass system ---- */
+  --glass-bg: color-mix(in srgb, var(--color-graphite-700) 60%, transparent);
+  --glass-border: color-mix(in srgb, var(--color-off-white) 8%, transparent);
+  --glass-highlight: color-mix(in srgb, var(--color-off-white) 6%, transparent);
+  --glass-blur: var(--blur-md);
+
+  /* ---- Sidebar-specific ---- */
+  --sidebar-width-expanded: 15.5rem;
+  --sidebar-width-collapsed: 4.5rem;
+  --topbar-height: 3.5rem;
+
+  /* ---- Motion: Apple-like easing, nothing bounces ---- */
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-enter:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-exit:     cubic-bezier(0.7, 0, 0.84, 0);
+  --duration-instant: 100ms;
+  --duration-fast:    200ms;
+  --duration-base:    400ms;
+  --duration-slow:    800ms;
+  --duration-ambient: 6000ms;
+  --transition-theme: background-color var(--duration-base) var(--ease-standard),
+                       color var(--duration-base) var(--ease-standard),
+                       border-color var(--duration-base) var(--ease-standard);
+}
+
+/*
+ * Light mode — same semantic aliases, inverted ramp. Every component
+ * reads --bg-canvas / --text-primary / etc, never a raw color, so this
+ * block is the only place light mode has to be taught to the system.
+ */
+[data-theme="light"] {
+  color-scheme: light;
+
+  --color-obsidian:        #fafafa;
+  --color-graphite-950:    #ffffff;
+  --color-graphite-900:    #f6f6f7;
+  --color-graphite-800:    #f0f1f2;
+  --color-graphite-700:    #e7e9eb;
+  --color-slate-600:       #dde0e3;
+  --color-slate-500:       #c7cbd0;
+  --color-slate-400:       #b0b6bd;
+  --color-stone-300:       #7a828a;
+  --color-fog-200:         #565e66;
+  --color-fog-100:         #33383e;
+  --color-off-white:       #14171a;
+
+  --color-teal-500:        #2f8f81;
+  --color-teal-400:        #24756a;
+  --color-teal-300:        #1c5c54;
+  --color-cyan-500:        #3d7f9b;
+  --color-cyan-400:        #326c85;
+  --color-emerald-500:     #327655;
+
+  --color-gold-500:        #9c7a3c;
+  --color-gold-400:        #83672f;
+
+  --color-red-500:         #a3453b;
+  --color-red-400:         #8a352c;
+
+  --bg-canvas:              var(--color-graphite-800);
+  --bg-stage:               var(--color-graphite-950);
+  --bg-surface:             #ffffff;
+  --bg-surface-raised:      var(--color-slate-600);
+  --border-hairline:        color-mix(in srgb, var(--color-fog-100) 10%, transparent);
+  --border-hairline-strong: color-mix(in srgb, var(--color-fog-100) 16%, transparent);
+  --text-primary:           var(--color-off-white);
+  --text-secondary:         var(--color-fog-200);
+  --text-muted:             var(--color-stone-300);
+  --focus-ring:             color-mix(in srgb, var(--color-teal-500) 55%, transparent);
+  --scrollbar-thumb:        var(--color-slate-500);
+
+  --glass-bg: color-mix(in srgb, #ffffff 65%, transparent);
+  --glass-border: color-mix(in srgb, var(--color-off-white) 6%, transparent);
+  --glass-highlight: color-mix(in srgb, #ffffff 60%, transparent);
+
+  --shadow-1: 0 1px 2px rgba(20,23,26,0.06);
+  --shadow-2: 0 4px 16px rgba(20,23,26,0.08), 0 1px 2px rgba(20,23,26,0.06);
+  --shadow-3: 0 12px 40px rgba(20,23,26,0.12), 0 2px 6px rgba(20,23,26,0.06);
+}
+
+@theme inline {
+  --color-obsidian: var(--color-obsidian);
+  --color-canvas: var(--bg-canvas);
+  --color-surface: var(--bg-surface);
+  --color-surface-raised: var(--bg-surface-raised);
+  --color-border: var(--border-hairline);
+  --color-border-strong: var(--border-hairline-strong);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-structure: var(--accent-structure);
+  --color-accent-growth: var(--accent-growth);
+  --color-accent-achievement: var(--accent-achievement);
+  --color-accent-critical: var(--accent-critical);
+
+  --font-display: var(--font-manrope, "Manrope"), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: var(--font-inter, "Inter"), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-plex-mono, "IBM Plex Mono"), ui-monospace, "SF Mono", Menlo, monospace;
+
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+}
