@@ -86,10 +86,15 @@ export function InstrumentAssembly({ size = 560 }: { size?: number }) {
           {ticks.map((t, i) => {
             const rad = (t.angle * Math.PI) / 180;
             const len = t.major ? 14 : 6;
-            const x1 = c + (rTicks - len) * Math.cos(rad);
-            const y1 = c + (rTicks - len) * Math.sin(rad);
-            const x2 = c + rTicks * Math.cos(rad);
-            const y2 = c + rTicks * Math.sin(rad);
+            // Rounded to 2dp: Math.cos/sin can differ in their last float digit
+            // between Node's V8 build and the browser's, which otherwise causes
+            // a hydration mismatch on these SSR'd coordinates. Invisible at this
+            // scale (sub-pixel), but keeps server/client markup byte-identical.
+            const round = (n: number) => Math.round(n * 100) / 100;
+            const x1 = round(c + (rTicks - len) * Math.cos(rad));
+            const y1 = round(c + (rTicks - len) * Math.sin(rad));
+            const x2 = round(c + rTicks * Math.cos(rad));
+            const y2 = round(c + rTicks * Math.sin(rad));
             return (
               <motion.line
                 key={i}
