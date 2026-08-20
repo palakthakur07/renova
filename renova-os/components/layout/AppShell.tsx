@@ -7,6 +7,7 @@ import { Topbar } from "@/components/navigation/Topbar";
 import { CommandPalette } from "@/components/navigation/CommandPalette";
 import { NotificationLayer } from "@/components/layout/NotificationLayer";
 import { PageTransition } from "@/components/animations/PageTransition";
+import { LaunchArrivalVeil } from "@/components/landing/LaunchArrivalVeil";
 import { useCommandPalette } from "@/hooks/useCommandPalette";
 import { useState } from "react";
 
@@ -39,6 +40,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
       <CommandPalette open={paletteOpen} onClose={closePalette} />
       <NotificationLayer />
+      <LaunchArrivalVeil />
     </div>
   );
 }

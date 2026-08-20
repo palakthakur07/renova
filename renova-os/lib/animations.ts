@@ -7,7 +7,7 @@
  * change is a one-file edit. Built on the primitives in `motion.ts`
  * (easing curves + durations) — this file is the preset layer.
  */
-import { Variants, Transition } from "framer-motion";
+import { Variants, Transition, TargetAndTransition } from "framer-motion";
 import { easeStandard, easeEnter, easeExit, durations } from "./motion";
 
 /** Simple opacity fade. Default for content that doesn't need to move. */
@@ -111,7 +111,7 @@ export const tooltipReveal: Variants = {
 };
 
 /** Ambient floating loop — for icons/badges that should feel alive at rest. */
-export const floating = {
+export const floating: { animate: TargetAndTransition } = {
   animate: {
     y: [0, -6, 0],
     transition: { duration: 5, repeat: Infinity, ease: "easeInOut" },
@@ -119,7 +119,7 @@ export const floating = {
 };
 
 /** Ambient pulse loop — for status dots and "live" indicators. */
-export const pulse = {
+export const pulse: { animate: TargetAndTransition } = {
   animate: {
     opacity: [0.5, 1, 0.5],
     scale: [1, 1.06, 1],
@@ -128,7 +128,7 @@ export const pulse = {
 };
 
 /** Ambient glow loop — soft breathing shadow, used sparingly (achievement states). */
-export const glow = {
+export const glow: { animate: TargetAndTransition } = {
   animate: {
     boxShadow: [
       "0 0 0px color-mix(in srgb, var(--accent-achievement) 0%, transparent)",
