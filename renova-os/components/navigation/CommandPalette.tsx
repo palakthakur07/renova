@@ -2,10 +2,30 @@
 
 import { Command } from "cmdk";
 import { AnimatePresence, motion } from "framer-motion";
-import { Search } from "lucide-react";
+import { Search, Users, DoorOpen, Sparkles, LineChart, GraduationCap } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { primaryNav } from "@/constants/navigation";
 import { siteConfig } from "@/config/site";
+
+interface QuickAction {
+  label: string;
+  href: string;
+  icon: typeof Search;
+}
+
+/**
+ * Demo quick actions (Phase 3 brief §25). These navigate to existing
+ * routes — "View programs" and "Open AI insights" both land on
+ * /overview since that's genuinely where Mission Control currently
+ * surfaces that data, not an arbitrary placeholder mapping.
+ */
+const quickActions: QuickAction[] = [
+  { label: "Find profile", href: "/profiles", icon: Users },
+  { label: "View releases", href: "/release", icon: DoorOpen },
+  { label: "Open AI insights", href: "/overview", icon: Sparkles },
+  { label: "View programs", href: "/overview", icon: LineChart },
+  { label: "Go to learning", href: "/learning", icon: GraduationCap },
+];
 
 /**
  * CommandPalette — UI only, per the Phase 1 brief. The single
@@ -67,6 +87,24 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
                     >
                       <item.icon size={15} strokeWidth={1.75} className="text-[var(--text-secondary)]" />
                       {item.label}
+                    </Command.Item>
+                  ))}
+                </Command.Group>
+                <Command.Group
+                  heading="Quick actions"
+                  className="px-1 py-1 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:font-mono [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-wider [&_[cmdk-group-heading]]:text-[var(--text-muted)]"
+                >
+                  {quickActions.map((action) => (
+                    <Command.Item
+                      key={action.label}
+                      onSelect={() => {
+                        router.push(action.href);
+                        onClose();
+                      }}
+                      className="flex cursor-pointer items-center gap-3 rounded-[var(--radius-sm)] px-3 py-2.5 text-[13px] text-[var(--text-primary)] aria-selected:bg-[var(--bg-surface-raised)]"
+                    >
+                      <action.icon size={15} strokeWidth={1.75} className="text-[var(--text-secondary)]" />
+                      {action.label}
                     </Command.Item>
                   ))}
                 </Command.Group>
