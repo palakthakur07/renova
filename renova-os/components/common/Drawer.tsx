@@ -1,15 +1,26 @@
 "use client";
 
 import { useEffect, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { useHasMounted } from "@/hooks/useHasMounted";
 
 /**
- * Drawer — the generic slide-in side panel every Mission Control
- * detail view (insight, program, release) is built on. Closes on
- * Escape or backdrop click. One implementation, three call sites —
- * type-specific content lives in components/dashboard/drawers/*.
+ * Drawer — the generic slide-in side panel every Mission Control and
+ * profile detail view (insight, program, release, milestone, skill...)
+ * is built on. Closes on Escape or backdrop click.
+ *
+ * Rendered via a portal into document.body rather than inline. Every
+ * route's content is wrapped in PageTransition's motion.div, which
+ * animates `scale`/`filter` — and per the CSS spec, any ancestor with
+ * a non-`none` transform or filter (even at rest, e.g. `scale(1)`)
+ * becomes the containing block for `position: fixed` descendants
+ * instead of the viewport. Without the portal, this drawer would
+ * render at the wrong position and an enormous height the moment the
+ * page is scrolled away from the very top — confirmed by inspecting
+ * the rendered bounding box, not just a screenshot at scroll-top zero.
  */
 export function Drawer({
   open,
@@ -25,6 +36,7 @@ export function Drawer({
   children: ReactNode;
 }) {
   const reducedMotion = usePrefersReducedMotion();
+  const mounted = useHasMounted();
 
   useEffect(() => {
     if (!open) return;
@@ -35,7 +47,9 @@ export function Drawer({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open, onClose]);
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {open && (
         <>
@@ -80,6 +94,7 @@ export function Drawer({
           </motion.div>
         </>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }

@@ -2,7 +2,7 @@
 
 import { Command } from "cmdk";
 import { AnimatePresence, motion } from "framer-motion";
-import { Search, Users, DoorOpen, Sparkles, LineChart, GraduationCap } from "lucide-react";
+import { Search, Users, DoorOpen, Sparkles, LineChart, GraduationCap, Milestone } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { primaryNav } from "@/constants/navigation";
 import { siteConfig } from "@/config/site";
@@ -20,10 +20,12 @@ interface QuickAction {
  * surfaces that data, not an arbitrary placeholder mapping.
  */
 const quickActions: QuickAction[] = [
-  { label: "Find profile", href: "/profiles", icon: Users },
+  { label: "Open Arjun Mehta", href: "/profiles", icon: Users },
+  { label: "View rehabilitation journey", href: "/profiles#journey", icon: Milestone },
+  { label: "View skills", href: "/profiles#skills", icon: LineChart },
+  { label: "View AI insights", href: "/profiles#ai-insights", icon: Sparkles },
+  { label: "View release preparation", href: "/profiles#release", icon: DoorOpen },
   { label: "View releases", href: "/release", icon: DoorOpen },
-  { label: "Open AI insights", href: "/overview", icon: Sparkles },
-  { label: "View programs", href: "/overview", icon: LineChart },
   { label: "Go to learning", href: "/learning", icon: GraduationCap },
 ];
 
