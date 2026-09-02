@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { NotificationProvider } from "@/components/providers/NotificationProvider";
+import { LearningProgressProvider } from "@/components/providers/LearningProgressProvider";
 import { siteConfig } from "@/config/site";
 
 /**
@@ -36,7 +37,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
         <ThemeProvider>
-          <NotificationProvider>{children}</NotificationProvider>
+          <NotificationProvider>
+            <LearningProgressProvider>{children}</LearningProgressProvider>
+          </NotificationProvider>
         </ThemeProvider>
       </body>
     </html>

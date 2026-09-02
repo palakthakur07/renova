@@ -2,7 +2,7 @@
 
 import { Command } from "cmdk";
 import { AnimatePresence, motion } from "framer-motion";
-import { Search, Users, DoorOpen, Sparkles, LineChart, GraduationCap, Milestone } from "lucide-react";
+import { Search, Users, DoorOpen, Sparkles, LineChart, GraduationCap, Milestone, BookOpen } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { primaryNav } from "@/constants/navigation";
 import { siteConfig } from "@/config/site";
@@ -26,7 +26,9 @@ const quickActions: QuickAction[] = [
   { label: "View AI insights", href: "/profiles#ai-insights", icon: Sparkles },
   { label: "View release preparation", href: "/profiles#release", icon: DoorOpen },
   { label: "View releases", href: "/release", icon: DoorOpen },
-  { label: "Go to learning", href: "/learning", icon: GraduationCap },
+  { label: "Show learning path", href: "/learning", icon: GraduationCap },
+  { label: "Open current lesson", href: "/learning/lesson/lesson-variables", icon: BookOpen },
+  { label: "Find course", href: "/learning/course/computer-applications", icon: GraduationCap },
 ];
 
 /**
