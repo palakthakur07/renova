@@ -10,7 +10,7 @@ export default function ContactPage() {
       <div className="rounded-[var(--radius-md)] border border-[var(--border-hairline)] bg-[var(--bg-surface)] p-6">
         <p className="text-[13px] text-[var(--text-muted)]">Email</p>
         <p className="mt-1 text-[14px] text-[var(--text-primary)]">
-          hello@renovaos.example
+          hello@renova.example
         </p>
       </div>
       <p className="text-[13px] leading-relaxed text-[var(--text-muted)]">

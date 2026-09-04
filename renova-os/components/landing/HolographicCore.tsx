@@ -64,7 +64,7 @@ export function HolographicCore({
       className="relative"
       style={{ width: size, height: size }}
       role="img"
-      aria-label="ReNova OS holographic core, assembling and coming online"
+      aria-label="ReNova holographic core, assembling and coming online"
     >
       <svg viewBox={`0 0 ${size} ${size}`} width={size} height={size} className="absolute inset-0">
         <defs>

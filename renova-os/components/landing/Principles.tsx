@@ -15,7 +15,7 @@ const principles = [
 
 export function Principles() {
   return (
-    <section className="relative bg-[var(--bg-canvas)] px-6 py-28 md:py-36">
+    <section id="how-it-works" className="relative bg-[var(--bg-canvas)] px-6 py-28 md:py-36">
       <div className="mx-auto max-w-5xl">
         <motion.p
           initial={{ opacity: 0, y: 12 }}

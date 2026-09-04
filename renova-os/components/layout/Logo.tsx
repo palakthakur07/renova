@@ -6,7 +6,7 @@ export function Logo({ collapsed = false, className }: { collapsed?: boolean; cl
     <Link
       href="/"
       className={cn("flex items-center gap-2.5 overflow-hidden", className)}
-      aria-label="ReNova OS home"
+      aria-label="ReNova home"
     >
       <span className="relative flex h-6 w-6 shrink-0 items-center justify-center">
         <span className="absolute inset-0 rounded-full border border-[var(--accent-primary)] opacity-70" />
@@ -18,7 +18,7 @@ export function Logo({ collapsed = false, className }: { collapsed?: boolean; cl
           collapsed && "opacity-0"
         )}
       >
-        ReNova OS
+        ReNova
       </span>
     </Link>
   );

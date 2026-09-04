@@ -8,7 +8,7 @@ const nav = primaryNav.find((item) => item.href === "/settings")!;
 export default function SettingsPage() {
   return (
     <PlaceholderPage
-      eyebrow="Phase 1 · Placeholder module"
+      eyebrow="Coming soon"
       title={nav.label}
       description={nav.description}
       icon={nav.icon}

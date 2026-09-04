@@ -27,7 +27,7 @@ export function SearchBar({ onOpen, className }: { onOpen: () => void; className
       )}
     >
       <Search size={15} className="shrink-0" />
-      <span className="flex-1 truncate">Search ReNova OS…</span>
+      <span className="flex-1 truncate">Search ReNova…</span>
       <kbd className="hidden shrink-0 items-center gap-0.5 rounded-[var(--radius-xs)] border border-[var(--border-hairline-strong)] px-1.5 py-0.5 font-mono text-[10px] sm:flex">
         {siteConfig.commandShortcut.mac}
       </kbd>

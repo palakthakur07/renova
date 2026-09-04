@@ -14,7 +14,7 @@ export function TopNav() {
       <div className="flex items-center gap-2.5">
         <div className="h-2 w-2 rounded-full bg-[var(--accent-primary)]" />
         <span className="font-[family-name:var(--font-display)] text-[14px] font-semibold tracking-tight">
-          ReNova OS
+          ReNova
         </span>
       </div>
       <div className="flex max-w-sm flex-1 items-center gap-2 rounded-[var(--radius-sm)] border border-[var(--border-hairline)] bg-[var(--bg-surface)] px-3 py-1.5 text-[13px] text-[var(--text-muted)] mx-8">

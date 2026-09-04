@@ -8,6 +8,7 @@ import { CommandPalette } from "@/components/navigation/CommandPalette";
 import { NotificationLayer } from "@/components/layout/NotificationLayer";
 import { PageTransition } from "@/components/animations/PageTransition";
 import { LaunchArrivalVeil } from "@/components/landing/LaunchArrivalVeil";
+import { Footer } from "@/components/layout/Footer";
 import { useCommandPalette } from "@/hooks/useCommandPalette";
 import { useState } from "react";
 
@@ -36,6 +37,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <main className="flex-1 px-4 py-8 sm:px-6 lg:px-8">
           <PageTransition>{children}</PageTransition>
         </main>
+        <Footer />
       </div>
 
       <CommandPalette open={paletteOpen} onClose={closePalette} />

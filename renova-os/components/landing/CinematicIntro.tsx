@@ -10,6 +10,7 @@ import { FocusLight } from "./FocusLight";
 import { SystemStatus, type SystemStage } from "./SystemStatus";
 import { BrandReveal } from "./BrandReveal";
 import { EnterButton } from "./EnterButton";
+import { LandingNav } from "./LandingNav";
 import { OSLaunchTransition } from "./OSLaunchTransition";
 import { PointerFieldProvider } from "@/components/providers/PointerFieldProvider";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
@@ -131,7 +132,12 @@ export function CinematicIntro() {
 
   return (
     <PointerFieldProvider>
-      <section className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden px-6">
+      <LandingNav show={showCta} onEnter={handleEnter} />
+
+      <section
+        id="platform"
+        className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden px-6"
+      >
         <button
           type="button"
           onClick={skipIntro}

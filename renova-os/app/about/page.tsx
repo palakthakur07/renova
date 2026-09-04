@@ -10,7 +10,7 @@ export default function AboutPage() {
     >
       <p className="text-[14px] leading-relaxed text-[var(--text-secondary)]">
         {siteConfig.name} is being built to give rehabilitation and
-        reintegration programs a structured, dignified operating system —
+        reintegration programs a structured, dignified platform —
         one place to plan, track, and support progress across education,
         skills, and personal growth.
       </p>

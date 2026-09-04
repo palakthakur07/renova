@@ -2,6 +2,7 @@
 
 import { Menu, Search } from "lucide-react";
 import { Breadcrumb } from "./Breadcrumb";
+import { PersonContextChip } from "./PersonContextChip";
 import { SearchBar } from "@/components/common/SearchBar";
 import { NotificationBell } from "@/components/common/NotificationBell";
 import { ThemeToggle } from "@/components/common/ThemeToggle";
@@ -55,6 +56,7 @@ export function Topbar({
       )}
 
       <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+        <PersonContextChip />
         <div className="hidden sm:block">
           <ThemeToggle />
         </div>

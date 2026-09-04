@@ -67,7 +67,7 @@ export default function SystemPage() {
             Component system
           </h1>
           <p className="mt-3 max-w-xl text-[14px] leading-relaxed text-[var(--text-secondary)]">
-            Every future screen in ReNova OS is assembled from these primitives.
+            Every future screen in ReNova is assembled from these primitives.
             Nothing below is wired to real data — it exists to keep every future
             build visually and behaviorally consistent.
           </p>
