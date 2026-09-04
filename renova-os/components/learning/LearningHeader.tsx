@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, TrendingUp } from "lucide-react";
 import type { Course } from "@/types/learning";
 
 /**
@@ -61,6 +61,14 @@ export function LearningHeader({ course, progressPct }: { course: Course; progre
           </p>
         </div>
         <ArrowUpRight size={16} className="shrink-0 text-[var(--text-muted)]" />
+      </Link>
+
+      <Link
+        href="/progress"
+        className="mt-3 flex items-center gap-1.5 text-[12px] font-medium text-[var(--accent-primary)] transition-colors hover:text-[var(--text-primary)]"
+      >
+        <TrendingUp size={13} />
+        View rehabilitation progress
       </Link>
     </div>
   );

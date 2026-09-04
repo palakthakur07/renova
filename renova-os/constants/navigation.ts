@@ -7,6 +7,7 @@ import {
   LineChart,
   DoorOpen,
   Settings,
+  TrendingUp,
 } from "lucide-react";
 import type { NavItem } from "@/types/nav";
 
@@ -39,6 +40,12 @@ export const primaryNav: NavItem[] = [
     href: "/learning",
     icon: BookOpen,
     description: "Placeholder for future education and vocational program tracking.",
+  },
+  {
+    label: "Progress",
+    href: "/progress",
+    icon: TrendingUp,
+    description: "A transparent view of rehabilitation progress across education, skills, programs, and learning.",
   },
   {
     label: "Counselor",

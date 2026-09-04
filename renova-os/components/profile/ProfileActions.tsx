@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Sparkles, NotebookPen, FolderOpen } from "lucide-react";
+import { Sparkles, NotebookPen, FolderOpen, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { useNotifications } from "@/components/providers/NotificationProvider";
 
@@ -37,6 +37,10 @@ export function ProfileActions({ onViewDocuments }: { onViewDocuments: () => voi
       <Button variant="ghost" size="md" onClick={onViewDocuments}>
         <FolderOpen size={14} className="mr-1.5" />
         View documents
+      </Button>
+      <Button variant="ghost" size="md" onClick={() => router.push("/progress")}>
+        <TrendingUp size={14} className="mr-1.5" />
+        View progress
       </Button>
     </div>
   );

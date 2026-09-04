@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
+import { TrendingUp } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import type { PlanStatus } from "@/types/planner";
 
@@ -51,6 +53,13 @@ export function PlannerHeader({
           <p className="text-[var(--text-muted)]">Last assessment</p>
           <p className="font-medium text-[var(--text-primary)]">{lastAssessment}</p>
         </div>
+        <Link
+          href="/progress"
+          className="flex items-center gap-1.5 rounded-[var(--radius-sm)] border border-[var(--border-hairline-strong)] px-3 py-1.5 text-[12px] text-[var(--accent-primary)] transition-colors hover:border-[var(--accent-primary)]"
+        >
+          <TrendingUp size={12} />
+          View progress
+        </Link>
       </div>
     </div>
   );
