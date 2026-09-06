@@ -51,7 +51,7 @@ export const EnterButton = forwardRef<HTMLButtonElement, { onClick: () => void; 
         className="inline-flex"
       >
         <Button ref={ref} size="lg" onClick={onClick} disabled={!show}>
-          Enter ReNova
+          Enter ReNova OS
           <ArrowRight size={16} className="ml-0.5" />
         </Button>
       </motion.div>

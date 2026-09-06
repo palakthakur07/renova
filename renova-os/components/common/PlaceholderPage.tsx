@@ -29,13 +29,13 @@ export function PlaceholderPage({
         eyebrow={eyebrow}
         title={title}
         description={description}
-        action={<Badge tone="structure">Coming soon</Badge>}
+        action={<Badge tone="structure">Phase 2 · Not yet built</Badge>}
       />
       <Reveal delay={0.3} className="pt-12">
         <EmptyState
           icon={Icon}
           title="This module hasn't been built yet"
-          description="This part of ReNova is still in development. The navigation, layout, and routing are already in place — full functionality is on the way."
+          description="Phase 1 establishes the application shell only — routing, navigation, and layout. Real functionality for this module arrives in a later phase."
         />
       </Reveal>
     </div>

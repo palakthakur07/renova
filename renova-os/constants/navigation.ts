@@ -12,34 +12,34 @@ import {
 import type { NavItem } from "@/types/nav";
 
 /**
- * Primary sidebar navigation. Labels match ReNova's final product
- * terminology; hrefs point at the actual routes implemented across
- * Phases 1-8 (relabeling only — no routes were added or removed).
+ * Primary sidebar navigation. All destinations are placeholder
+ * pages in Phase 1 — no route here reflects real product scope
+ * or an implementation commitment for Phase 2.
  */
 export const primaryNav: NavItem[] = [
   {
-    label: "Mission Control",
+    label: "Overview",
     href: "/overview",
     icon: LayoutGrid,
-    description: "A high-level view of facility status, rehabilitation health, and what needs attention.",
+    description: "A high-level placeholder for the future operations overview.",
   },
   {
-    label: "People",
+    label: "Profiles",
     href: "/profiles",
     icon: Users,
-    description: "Resident and staff profiles, each tracking a full rehabilitation journey.",
+    description: "Placeholder for future resident and staff profile management.",
   },
   {
-    label: "Plan",
+    label: "AI Planner",
     href: "/planner",
     icon: Sparkles,
-    description: "AI-assisted rehabilitation planning.",
+    description: "Placeholder for a future AI-assisted rehabilitation planning tool.",
   },
   {
-    label: "Learn",
+    label: "Learning",
     href: "/learning",
     icon: BookOpen,
-    description: "Education and vocational program tracking, with an AI learning companion.",
+    description: "Placeholder for future education and vocational program tracking.",
   },
   {
     label: "Progress",
@@ -48,27 +48,27 @@ export const primaryNav: NavItem[] = [
     description: "A transparent view of rehabilitation progress across education, skills, programs, and learning.",
   },
   {
-    label: "Analytics",
-    href: "/analytics",
-    icon: LineChart,
-    description: "Program and outcome analytics across the facility.",
-  },
-  {
-    label: "Reintegrate",
-    href: "/release",
-    icon: DoorOpen,
-    description: "Release readiness and reintegration planning.",
-  },
-  {
     label: "Counselor",
     href: "/counselor",
     icon: MessageCircleHeart,
-    description: "Counselor collaboration workspace.",
+    description: "Placeholder for a future counselor collaboration workspace.",
+  },
+  {
+    label: "Analytics",
+    href: "/analytics",
+    icon: LineChart,
+    description: "Placeholder for future program and outcome analytics.",
+  },
+  {
+    label: "Reintegration",
+    href: "/release",
+    icon: DoorOpen,
+    description: "Release preparation and reintegration — preparation progress, employment readiness, and support planning.",
   },
   {
     label: "Settings",
     href: "/settings",
     icon: Settings,
-    description: "Workspace and account settings.",
+    description: "Placeholder for future workspace and account settings.",
   },
 ];

@@ -5,10 +5,10 @@
  * feature flags, etc.) without touching components.
  */
 export const siteConfig = {
-  name: "ReNova",
-  tagline: "An intelligent rehabilitation & reintegration platform.",
+  name: "ReNova OS",
+  tagline: "AI-Powered Rehabilitation & Reintegration Platform",
   shortName: "ReNova",
   description:
-    "An intelligent rehabilitation & reintegration platform, built on structure, precision, and human dignity.",
+    "An operating system for rehabilitation, built on structure, precision, and human dignity.",
   commandShortcut: { mac: "⌘K", other: "Ctrl K" },
 } as const;

@@ -8,7 +8,7 @@ const nav = primaryNav.find((item) => item.href === "/analytics")!;
 export default function AnalyticsPage() {
   return (
     <PlaceholderPage
-      eyebrow="Coming soon"
+      eyebrow="Phase 1 · Placeholder module"
       title={nav.label}
       description={nav.description}
       icon={nav.icon}

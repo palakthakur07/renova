@@ -7,26 +7,26 @@ import { GlassPanel } from "./GlassPanel";
 import { Badge } from "@/components/ui/Badge";
 import type { NotificationItem } from "@/types/common";
 
-/** Static placeholder feed — no backend to source real alerts from yet. */
+/** Static placeholder feed — Phase 1 has no backend to source real alerts from. */
 const demoNotifications: NotificationItem[] = [
   {
     id: "1",
-    title: "Communication module completed",
-    detail: "Arjun Mehta finished Professional Communication with a 94% score.",
-    tone: "achievement",
+    title: "Design system published",
+    detail: "Phase 0 tokens are now available to every module.",
+    tone: "structure",
     timestamp: "9:12 AM",
   },
   {
     id: "2",
-    title: "Progress updated",
-    detail: "Rehabilitation progress recalculated after this week's activity.",
-    tone: "structure",
+    title: "Foundation milestone reached",
+    detail: "Phase 1 application shell is scaffolded.",
+    tone: "achievement",
     timestamp: "Yesterday",
   },
   {
     id: "3",
-    title: "New counselor action available",
-    detail: "A recommended check-in is ready for review.",
+    title: "Placeholder data in use",
+    detail: "No live records are connected yet.",
     tone: "neutral",
     timestamp: "Yesterday",
   },
