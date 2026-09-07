@@ -6,5 +6,6 @@ export * from "./Avatar";
 export * from "./Skeleton";
 export * from "./EmptyState";
 export * from "./Input";
+export * from "./Textarea";
 export * from "./Tooltip";
 export * from "./Tag";

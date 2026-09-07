@@ -25,7 +25,7 @@ export function BrandReveal({ show }: { show: boolean }) {
           transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1] }}
           className="font-[family-name:var(--font-display)] text-[clamp(3rem,9vw,6.5rem)] font-semibold leading-[0.95] text-[var(--text-primary)]"
         >
-          ReNova&nbsp;OS
+          ReNova
         </motion.h1>
 
         {!reducedMotion && (
@@ -49,7 +49,7 @@ export function BrandReveal({ show }: { show: boolean }) {
         transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
         className="mt-5 max-w-md text-balance text-[14px] leading-relaxed text-[var(--text-secondary)] md:text-[15px]"
       >
-        The intelligent operating system for rehabilitation &amp; reintegration.
+        An intelligent rehabilitation &amp; reintegration platform.
       </motion.p>
     </div>
   );
