@@ -53,7 +53,7 @@ export const primaryNav: NavItem[] = [
     label: "Analytics",
     href: "/analytics",
     icon: LineChart,
-    description: "Placeholder for future program and outcome analytics.",
+    description: "Rehabilitation activity, progress and program insights across the ecosystem — context and decision support, not a scoring system.",
   },
   {
     label: "Release",
