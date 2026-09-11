@@ -7,5 +7,6 @@ export * from "./Skeleton";
 export * from "./EmptyState";
 export * from "./Input";
 export * from "./Textarea";
+export * from "./Switch";
 export * from "./Tooltip";
 export * from "./Tag";

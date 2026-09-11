@@ -12,6 +12,7 @@ import { BrandReveal } from "./BrandReveal";
 import { EnterButton } from "./EnterButton";
 import { OSLaunchTransition } from "./OSLaunchTransition";
 import { PointerFieldProvider } from "@/components/providers/PointerFieldProvider";
+import { useSettings } from "@/components/providers/SettingsProvider";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { getSessionFlag, setSessionFlag, SESSION_KEYS } from "@/lib/session";
 import { motion } from "framer-motion";
@@ -67,6 +68,7 @@ const getServerFalse = () => false;
 
 export function CinematicIntro() {
   const router = useRouter();
+  const { defaultLandingPage } = useSettings();
   const reducedMotion = usePrefersReducedMotion();
   const visited = useSyncExternalStore(
     subscribeNever,
@@ -126,7 +128,7 @@ export function CinematicIntro() {
 
   const handleCovered = () => {
     setSessionFlag(SESSION_KEYS.launching);
-    router.push("/overview");
+    router.push(defaultLandingPage);
   };
 
   return (

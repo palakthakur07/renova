@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { NotificationProvider } from "@/components/providers/NotificationProvider";
 import { LearningProgressProvider } from "@/components/providers/LearningProgressProvider";
+import { SettingsProvider } from "@/components/providers/SettingsProvider";
 import { siteConfig } from "@/config/site";
 
 /**
@@ -37,9 +38,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
         <ThemeProvider>
-          <NotificationProvider>
-            <LearningProgressProvider>{children}</LearningProgressProvider>
-          </NotificationProvider>
+          <SettingsProvider>
+            <NotificationProvider>
+              <LearningProgressProvider>{children}</LearningProgressProvider>
+            </NotificationProvider>
+          </SettingsProvider>
         </ThemeProvider>
       </body>
     </html>

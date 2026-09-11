@@ -15,6 +15,19 @@ html {
   scroll-behavior: smooth;
 }
 
+/*
+ * Compact interface density (Settings → Preferences). Every existing
+ * rem-based Tailwind spacing utility (p-7, px-3.5, gap-2, text sizing
+ * that uses rem, ...) scales automatically with root font-size, so
+ * this single rule tightens spacing app-wide without touching
+ * individual components. Arbitrary px-bracket values (text-[13px])
+ * are intentionally unaffected — copy stays readable while padding
+ * and gaps tighten.
+ */
+html[data-density="compact"] {
+  font-size: 14px;
+}
+
 body {
   background: var(--bg-canvas);
   color: var(--text-primary);

@@ -12,36 +12,34 @@ import {
 import type { NavItem } from "@/types/nav";
 
 /**
- * Primary sidebar navigation. Labels and order match the brief's
- * Phase 9 navigation spec: Mission Control, People, Plan, Learn,
- * Progress, Analytics, Release, Counselor, Settings. Progress,
- * Release, and Counselor are real modules; Analytics and Settings
- * remain placeholders until their own phases (brief §22, §23).
+ * Primary sidebar navigation, finalized in Phase 11. Every item is a
+ * fully implemented module — Mission Control, People, Plan, Learn,
+ * Progress, Analytics, Release, Counselor, Settings.
  */
 export const primaryNav: NavItem[] = [
   {
     label: "Mission Control",
     href: "/overview",
     icon: LayoutGrid,
-    description: "A high-level placeholder for the future operations overview.",
+    description: "A facility-wide operational overview — activity, program health, and attention items.",
   },
   {
     label: "People",
     href: "/profiles",
     icon: Users,
-    description: "Placeholder for future resident and staff profile management.",
+    description: "Resident profiles and rehabilitation journeys.",
   },
   {
     label: "Plan",
     href: "/planner",
     icon: Sparkles,
-    description: "Placeholder for a future AI-assisted rehabilitation planning tool.",
+    description: "AI-assisted rehabilitation planning, built from an individual's assessment and goals.",
   },
   {
     label: "Learn",
     href: "/learning",
     icon: BookOpen,
-    description: "Placeholder for future education and vocational program tracking.",
+    description: "The AI Learning Companion — courses, lessons, and skill development.",
   },
   {
     label: "Progress",
@@ -71,6 +69,6 @@ export const primaryNav: NavItem[] = [
     label: "Settings",
     href: "/settings",
     icon: Settings,
-    description: "Placeholder for future workspace and account settings.",
+    description: "Account, preferences, application defaults, privacy, and platform information.",
   },
 ];

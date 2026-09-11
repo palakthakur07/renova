@@ -9,5 +9,6 @@ export const siteConfig = {
   tagline: "Intelligent Rehabilitation & Reintegration Platform",
   shortName: "ReNova",
   description: "An intelligent rehabilitation & reintegration platform.",
+  version: "0.1.0",
   commandShortcut: { mac: "⌘K", other: "Ctrl K" },
 } as const;

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { RoleProvider } from "@/components/providers/RoleProvider";
+import { useSettings } from "@/components/providers/SettingsProvider";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
 import { AnalyticsHeader } from "./AnalyticsHeader";
@@ -58,6 +59,15 @@ function AnalyticsBody() {
   const [timeRange, setTimeRange] = useState<AnalyticsTimeRange>("30d");
   const [program, setProgram] = useState("all");
   const [area, setArea] = useState("all");
+  const { defaultAnalyticsRange } = useSettings();
+
+  useEffect(() => {
+    // One-time sync from the Settings default on mount, not a general
+    // re-sync loop; see components/providers/SettingsProvider.tsx.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setTimeRange(defaultAnalyticsRange as AnalyticsTimeRange);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const programOptions = useMemo(() => programs.map((p) => p.name), []);
   const areaOptions = useMemo(() => developmentAreas.map((a) => a.label), []);
